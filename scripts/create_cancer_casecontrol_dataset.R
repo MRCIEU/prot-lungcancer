@@ -18,15 +18,15 @@ bd<-format_sex()
 # bd_temp<-bd
 # lung cancer
 luc<-lung_cancer_function() 
-temp<-luc
+# temp<-luc
 luc2<-lung_cancer_function2(dat=luc)
 lun3<-format_cancer(dat=luc2,censor_date="2018-02-06",cancer_name="overall_lung_cancer",icd10="C34")
 lun4<-multiple_diagnoses2(dat=lun3,icd10="C34",icd9=16)
-head(lun4)
-Names6<-names(lun4)[grep("f.40000",names(lun4))] #Date of death
+# head(lun4)
+# Names6<-names(lun4)[grep("f.40000",names(lun4))] #Date of death
 
-head(lun4$date_diagnosis2)
-head(lun4$f.40000.1.0)
+# head(lun4$date_diagnosis2)
+# head(lun4$f.40000.1.0)
 
 # deaths within 3 months of diagnosis 
 length(which(lun4$survival_months<=3))/nrow(lun4)
@@ -42,13 +42,11 @@ summary(lun4$date_diagnosis2[Pos2])
 
 Names6<-names(lun4)[grep("f.53\\.",names(lun4))] #Date of death
 
-class(lun4$f.200.0.0)
-class(lun4$f.53.0.0)
 lun4$f.53.0.0
 lun4$date_diagnosis2
 
 lun4<-dat
-names(lun4)
+
 
 
 qc_check<-function(){
@@ -80,6 +78,8 @@ bd<-cleanup_names()
 
 
 # breast cancer
+# UKBB_cancer_outcomes can be found on github 
+# https://github.com/MRCIEU/UKBB_cancer_outcomes
 # bd1<-bd
 bd<-bd[,!names(bd) %in% c("overall_cervical_cancer","overall_prostate_cancer","overall_breast_cancer")]
 bd<-breast_cancer_function()
