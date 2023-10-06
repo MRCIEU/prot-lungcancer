@@ -19,4 +19,4 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN   unzip plink2_linux_avx2_20231005.zip \
       && rm plink2_linux_avx2_20231005.zip \
-      && mv plink2 /usr/bin/local
+      && mv plink2 /usr/bin/
